@@ -4,6 +4,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.api.nvim_set_keymap("i", "jk", "<ESC>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "kj", "<ESC>", { noremap = true, silent = true })
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -37,3 +39,14 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+
+-- Navigate to next buffer
+  vim.api.nvim_set_keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+-- Remap enter to make a new line below curson (macOS) in normal mode
+  vim.api.nvim_set_keymap("n", "<CR>", "o<ESC>", { noremap = true, silent = true })
+  -- Remap shift enter to make a new line above cursor (macOS) in normal mode
+  vim.api.nvim_set_keymap("n", "<S-CR>", "O<ESC>", { noremap = true, silent = true })
+  -- Remap ,v to split screen vertically
+  vim.api.nvim_set_keymap("n", ",v", ":vsplit<CR>", { noremap = true, silent = true })
