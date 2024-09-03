@@ -68,5 +68,7 @@ vim.opt.scrolloff = 10
 require("keybindings")
 -- Lazy.nvim package manager
 require("config.lazy")
+-- Initialize Mason
+require("mason").setup()
 -- Add automations
 require("automation")
